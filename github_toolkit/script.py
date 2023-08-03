@@ -37,4 +37,13 @@ if __name__ == '__main__':
 
     git_token = acquire_access_token(private_key, app_id)
 
-    subprocess.run(['git', 'config', '--global', f'url."https://{token_name}:{git_token}@github.com/".insteadOf "https://github.com/"'])
+    bash_script = f'''
+    git config --global url."https://{token_name}:{git_token}@github.com/".insteadOf "https://github.com/"
+    '''
+
+    completed_process = subprocess.run(bash_script, shell=True, check=True)
+
+    if completed_process.returncode == 0:
+        print("Git config script executed successfully.")
+    else:
+        print("Error executing the bash script.")
