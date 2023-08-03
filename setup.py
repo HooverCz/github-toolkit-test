@@ -4,7 +4,7 @@ setup(
     name='github_toolkit',
     version='0.0.1',
     packages=[
-        'gso_github_toolkit',
+        'github_toolkit',
     ],
     license='',
     author='Simon Dalecky',
