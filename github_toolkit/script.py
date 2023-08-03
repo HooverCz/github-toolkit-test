@@ -27,18 +27,26 @@ def get_arguments():
         type=str,
         help="Name of the token to be used",
     )
+    parser.add_argument(
+        "--organization",
+        required=False,
+        metavar="token_name",
+        type=str,
+        help="Name of the github organization",
+        default="",
+    )    
     args = parser.parse_args()
-    return args.private_key, args.app_id, args.token_name
+    return args.private_key, args.app_id, args.token_name, args.organization
 
 
 if __name__ == '__main__':
 
-    private_key, app_id, token_name = get_arguments()
+    private_key, app_id, token_name, organization = get_arguments()
 
     git_token = acquire_access_token(private_key, app_id)
 
     bash_script = f'''
-    git config --global url."https://{token_name}:{git_token}@github.com/".insteadOf "https://github.com/"
+    git config --global url."https://{token_name}:{git_token}@github.com/{organization}".insteadOf "https://github.com/{organization}"
     '''
 
     completed_process = subprocess.run(bash_script, shell=True, check=True)
