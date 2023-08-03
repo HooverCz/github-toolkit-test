@@ -1,6 +1,6 @@
 import subprocess
 import argparse
-from github_toolkit.auth import acquire_access_token
+from github_toolkit.auth import acquire_access_token # TODO: change this to the correct name
 
 def get_arguments():
     parser = argparse.ArgumentParser(
@@ -30,11 +30,11 @@ def get_arguments():
     parser.add_argument(
         "--organization",
         required=False,
-        metavar="token_name",
+        metavar="organization",
         type=str,
         help="Name of the github organization",
         default="",
-    )    
+    )
     args = parser.parse_args()
     return args.private_key, args.app_id, args.token_name, args.organization
 
