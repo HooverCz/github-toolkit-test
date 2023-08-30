@@ -42,16 +42,16 @@ jobs:
         id: get_job_name_and_id
         shell: bash
         run: |
-          job_names=$(
-              yq --output-format=p eval '.default.workflows[0].name' "deploy_spec.json"
+          job_name=$(
+            yq eval '.default.workflows[0].name' "deploy_spec.json"
           )
-          job_ids=$(
-              yq eval '.default.workflows[0].job_id' "deploy_spec.json"
+          job_id=$(
+            yq eval '.default.workflows[0].job_id' "deploy_spec.json"
           )
-          echo "$job_names"
-          echo "$job_names" >> $GITHUB_OUTPUT
-          echo $job_ids
-          echo "$job_ids" >> $GITHUB_OUTPUT
+          echo "$job_name"
+          echo "job_name=$job_name" >> $GITHUB_OUTPUT
+          echo $job_id
+          echo "job_id=$job_id" >> $GITHUB_OUTPUT
 
       - name: echo_github_outputs
         id: echo_github_outputs
