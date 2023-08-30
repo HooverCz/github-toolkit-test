@@ -1,0 +1,38 @@
+name: Test arrays
+on:
+  workflow_dispatch:
+    input:
+      description: 'Enter a list of numbers'
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: some script
+        id: script1
+        shell: bash
+        run: |
+          echo "hello"
+
+  job2:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: some script
+        id: script2
+        shell: bash
+        run: |
+          echo "hello"
+
+  job3:
+    runs-on: ubuntu-20.04
+    needs: [
+      job1,
+      job2
+    ]
+    steps:
+      - name: some script
+        id: script3
+        shell: bash
+        run: |
+          echo "hello"

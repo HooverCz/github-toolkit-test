@@ -17,7 +17,7 @@
                 "tasks": [
                     {
                         "spark_python_task": {
-                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/9408444fef724766a3a6f9ccbe9857c9/artifacts/scripts/script1.py",
+                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/c43cd004e4024235816ac7b534cdac7f/artifacts/scripts/script1.py",
                             "parameters": []
                         },
                         "task_key": "task1",
@@ -43,7 +43,7 @@
                 "tasks": [
                     {
                         "spark_python_task": {
-                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/9408444fef724766a3a6f9ccbe9857c9/artifacts/scripts/script2.py",
+                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/c43cd004e4024235816ac7b534cdac7f/artifacts/scripts/script2.py",
                             "parameters": []
                         },
                         "task_key": "task2",
