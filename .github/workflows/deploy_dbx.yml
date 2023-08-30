@@ -23,6 +23,13 @@ jobs:
           pip install databricks-cli
           pip install dbx
 
+      - name: setup_env_vars
+        id: setup_env_vars
+        shell: bash
+        run: |
+          echo "DATABRICKS_HOST=${{ secrets.DATABRICKS_HOST }}" >> $GITHUB_ENV
+          echo "DATABRICKS_TOKEN=${{ secrets.DATABRICKS_TOKEN }}" >> $GITHUB_ENV
+
       - name: Deploy
         id: deploy
         shell: bash
