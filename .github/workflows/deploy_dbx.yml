@@ -43,10 +43,10 @@ jobs:
         shell: bash
         run: |
           job_name=$(
-            yq eval '.default.workflows[].name' "deploy_spec.json"
+            yq eval '.default.workflows[0].name' "deploy_spec.json"
           )
           job_id=$(
-            yq eval '.default.workflows[].job_id' "deploy_spec.json"
+            yq eval '.default.workflows[0].job_id' "deploy_spec.json"
           )
           echo "$job_name"
           echo "job_name=$job_name" >> $GITHUB_OUTPUT
