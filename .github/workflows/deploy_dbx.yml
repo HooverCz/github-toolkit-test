@@ -1,0 +1,46 @@
+name: Test ML Toolkit actions
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  testing:
+    runs-on: ubuntu-20.04
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Install dbx
+        shell: bash
+        run: |
+          pip install databricks-cli
+          pip install dbx
+
+      - name: Deploy
+        id: deploy
+        shell: bash
+        run: |
+          dbx deploy \
+            --deployment-file="conf.yml" \
+            --write-specs-to-file="deploy_spec.json"
+
+      - name: Get job name and id
+        id: get_job_name_and_id
+        shell: bash
+        run: |
+          job_name=$(
+            yq eval '.default.workflows[0].name' "job_spec.json"
+          )
+          job_id=$(
+            yq eval '.default.workflows[0].job_id' "job_spec.json"
+          )
+          echo "$job_name"
+          echo "job_name=$job_name" >> $GITHUB_OUTPUT
+          echo $job_id

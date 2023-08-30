@@ -1,0 +1,58 @@
+{
+    "default": {
+        "workflows": [
+            {
+                "job_clusters": [
+                    {
+                        "job_cluster_key": "cluster",
+                        "new_cluster": {
+                            "spark_version": "12.2.x-cpu-ml-scala2.12",
+                            "node_type_id": "Standard_D4s_v5",
+                            "num_workers": 1
+                        }
+                    }
+                ],
+                "name": "workflow1",
+                "job_id": 892091113064966,
+                "tasks": [
+                    {
+                        "spark_python_task": {
+                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/9408444fef724766a3a6f9ccbe9857c9/artifacts/scripts/script1.py",
+                            "parameters": []
+                        },
+                        "task_key": "task1",
+                        "job_cluster_key": "cluster",
+                        "libraries": []
+                    }
+                ],
+                "workflow_type": "job-v2.1"
+            },
+            {
+                "job_clusters": [
+                    {
+                        "job_cluster_key": "cluster2",
+                        "new_cluster": {
+                            "spark_version": "12.2.x-cpu-ml-scala2.12",
+                            "node_type_id": "Standard_D4s_v5",
+                            "num_workers": 1
+                        }
+                    }
+                ],
+                "name": "workflow2",
+                "job_id": 990812129129425,
+                "tasks": [
+                    {
+                        "spark_python_task": {
+                            "python_file": "dbfs:/Shared/dbx/projects/sandbox/9408444fef724766a3a6f9ccbe9857c9/artifacts/scripts/script2.py",
+                            "parameters": []
+                        },
+                        "task_key": "task2",
+                        "job_cluster_key": "cluster2",
+                        "libraries": []
+                    }
+                ],
+                "workflow_type": "job-v2.1"
+            }
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "github-toolkit-test"
+version = "0.1.0"
+description = ""
+authors = ["Simon DALECKY"]
+readme = "README.md"
+packages = [{include = "github_toolkit_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+databricks-cli = "^0.17.7"
+dbx = "^0.8.18"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

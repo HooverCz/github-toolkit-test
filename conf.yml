@@ -1,0 +1,35 @@
+build:
+  no_build: true
+
+environments:
+  default:
+    workflows:
+      - name: "workflow1"
+        job_clusters:
+          - job_cluster_key: "cluster"
+            new_cluster:
+              spark_version: "12.2.x-cpu-ml-scala2.12"
+              num_workers: 1
+              node_type_id: "Standard_D4s_v5"
+
+
+        tasks:
+          - task_key: "task1"
+            job_cluster_key: "cluster"
+            spark_python_task:
+              python_file: "file://scripts/script1.py"
+
+      - name: "workflow2"
+        job_clusters:
+          - job_cluster_key: "cluster2"
+            new_cluster:
+              spark_version: "12.2.x-cpu-ml-scala2.12"
+              num_workers: 1
+              node_type_id: "Standard_D4s_v5"
+
+
+        tasks:
+          - task_key: "task2"
+            job_cluster_key: "cluster2"
+            spark_python_task:
+              python_file: "file://scripts/script2.py"
