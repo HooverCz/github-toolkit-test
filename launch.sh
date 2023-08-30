@@ -11,6 +11,10 @@ job_ids=$(
     yq eval '.default.workflows[].job_id' "deploy_spec.json"
 )
 echo $job_ids
+
+for id in $job_ids; do
+    echo $id
+done
 # for job in $job_names; do
 #     dbx_launch_logs="$(
 #         dbx launch  $job
